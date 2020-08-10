@@ -302,6 +302,7 @@ export default {
     flex: 1 0 auto;
     background-color: #3b3946;
     color: #d8d8d9;
+    text-align: center;
   }
 
   .router-link-exact-active {

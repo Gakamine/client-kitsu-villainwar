@@ -1,5 +1,5 @@
 <template>
-  <div class="app">
+
     <form class="grid">
       <div class="grid-items">
         <b-radio v-model="vote"
@@ -18,7 +18,7 @@
       <input v-if="token" type="button" :value="valueBtn" :disabled="disableBtn" @click="SubmitVote()" class="button is-primary"/>
       <input v-else type="button" value="You need to log in" disabled class="button is-primary"/>
     </form>
-  </div>
+
 </template>
 <script>
 import { VOTE_MUTATION } from '../gql/mutation_vote';
@@ -91,11 +91,11 @@ export default {
     overflow: hidden;
     margin: auto;
     display: inline-block;
+    margin: 50px 0px;
   }
   @media (min-width: 1200px){
     .grid {
       max-width: 45%;
-      
     }
   }
   .grid-items {
