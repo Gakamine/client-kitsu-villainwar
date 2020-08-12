@@ -5,13 +5,13 @@
           <b-radio v-model="vote"
               name="opponents"
               :native-value="data.opp1Id.id">
-              <img :src="'https://kitsu-villainwar.herokuapp.com'+data.opp1Id.image"/>
+              <img :src="'http://localhost:3000'+data.opp1Id.image"/>
               <p>{{ data.opp1Id.name }}</p>
           </b-radio>
           <b-radio v-model="vote"
               name="opponents"
               :native-value="data.opp2Id.id">
-              <img :src="'https://kitsu-villainwar.herokuapp.com'+data.opp2Id.image"/>
+              <img :src="'http://localhost:3000'+data.opp2Id.image"/>
               <p>{{ data.opp2Id.name }}</p>
           </b-radio>
         </div>

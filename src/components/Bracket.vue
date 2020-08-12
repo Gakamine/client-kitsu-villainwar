@@ -45,7 +45,7 @@ li:nth-child(1) {
     height: 24px;
     float: left;
 }
-[class^="opp_"]:hover {
+.opp_1:hover ~ .opp_1 {
     background-color: #dd452a !important;
 }
 .current {

@@ -22,6 +22,14 @@
             </svg>
             <strong>Kitsu Villain War</strong>
           </b-navbar-item>
+            <div class="buttons is-hidden-desktop">
+              <a v-if="token" class="button is-primary" @click="Logout()">
+                <strong>Logout</strong>
+              </a>
+              <a v-else class="button is-primary" @click="isComponentModalActive = true">
+                <strong>Login</strong>
+              </a>
+            </div>
         </template>
         <template slot="start">
           <b-navbar-item tag="router-link" :to="{ path: '/' }">
@@ -32,7 +40,7 @@
           </b-navbar-item>
         </template>
         <template slot="end">
-          <b-navbar-item tag="div">
+          <b-navbar-item tag="div" class="is-hidden-mobile ">
             <div class="buttons">
               <a v-if="token" class="button is-primary" @click="Logout()">
                 <strong>Logout</strong>
@@ -333,5 +341,15 @@ export default {
     flex-shrink: 0;
     background-color: #2a2832;
     color: #c1c1c4;
+  }
+  .is-hidden-desktop {
+    margin-bottom: 0px !important;
+    margin-left: auto;
+  }
+  .is-hidden-desktop .button {
+    margin: 0px !important;
+  }
+  .navbar-burger {
+    margin-left: 0px !important;
   }
 </style>
