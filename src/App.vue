@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <template v-if="currentRound">
+    <template>
 
       <b-navbar shadow fixed-top>
         <template slot="brand">
@@ -46,7 +46,7 @@
       </b-navbar>
 
       <div id="router-view">
-        <router-view :token="token" :data="currentRound" />
+        <router-view v-if="getResults" :token="token" :data="currentRound" :results="getResults" />
       </div>
 
       <b-modal
@@ -192,6 +192,12 @@ export default {
       error() {
         this.APIerror=true
       }
+    },
+    getResults: {
+      query: FETCH_DATA_QUERY,
+      error() {
+        this.APIerror=true
+      }
     }
   },
   mounted() {
@@ -298,7 +304,6 @@ export default {
   }
 
   #router-view {
-    padding: 10px;
     flex: 1 0 auto;
     background-color: #3b3946;
     color: #d8d8d9;

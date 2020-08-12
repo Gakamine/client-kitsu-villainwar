@@ -1,30 +1,31 @@
 <template>
-
-    <form class="grid">
-      <div class="grid-items">
-        <b-radio v-model="vote"
-            name="opponents"
-            :native-value="data.opp1Id.id">
-            <img :src="'http://localhost:3000'+data.opp1Id.image"/>
-            <p>{{ data.opp1Id.name }}</p>
-        </b-radio>
-        <b-radio v-model="vote"
-            name="opponents"
-            :native-value="data.opp2Id.id">
-            <img :src="'http://localhost:3000'+data.opp2Id.image"/>
-            <p>{{ data.opp2Id.name }}</p>
-        </b-radio>
-      </div>
-      <input v-if="token" type="button" :value="valueBtn" :disabled="disableBtn" @click="SubmitVote()" class="button is-primary"/>
-      <input v-else type="button" value="You need to log in" disabled class="button is-primary"/>
-    </form>
-
+    <div>
+      <form v-if="data" class="grid">
+        <div class="grid-items">
+          <b-radio v-model="vote"
+              name="opponents"
+              :native-value="data.opp1Id.id">
+              <img :src="'https://kitsu-villainwar.herokuapp.com'+data.opp1Id.image"/>
+              <p>{{ data.opp1Id.name }}</p>
+          </b-radio>
+          <b-radio v-model="vote"
+              name="opponents"
+              :native-value="data.opp2Id.id">
+              <img :src="'https://kitsu-villainwar.herokuapp.com'+data.opp2Id.image"/>
+              <p>{{ data.opp2Id.name }}</p>
+          </b-radio>
+        </div>
+        <input v-if="token" type="button" :value="valueBtn" :disabled="disableBtn" @click="SubmitVote()" class="button is-primary"/>
+        <input v-else type="button" value="You need to log in" disabled class="button is-primary"/>
+      </form>
+      <h1 v-else>There is no match at the moment, please come back later!</h1>
+    </div>
 </template>
 <script>
 import { VOTE_MUTATION } from '../gql/mutation_vote';
 export default {
   name: 'VotePage',
-  props: ['data','token'],
+  props: ['data','token','results'],
   data() {
     return {
       vote: null,
@@ -91,7 +92,7 @@ export default {
     overflow: hidden;
     margin: auto;
     display: inline-block;
-    margin: 50px 0px;
+    margin: 50px 10px;
   }
   @media (min-width: 1200px){
     .grid {

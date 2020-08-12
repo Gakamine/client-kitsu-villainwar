@@ -12,7 +12,7 @@ import AsyncComputed from 'vue-async-computed'
 Vue.config.productionTip = false
 
 const httpLink = new HttpLink({
-  uri: 'https://kitsu-villainwar.herokuapp.com/',
+  uri: 'https://kitsu-villainwar.herokuapp.com',
 })
 
 const apolloClient = new ApolloClient({
