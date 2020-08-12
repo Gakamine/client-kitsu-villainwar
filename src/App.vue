@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <template>
+    <template v-if="!APIerror">
 
       <b-navbar shadow fixed-top>
         <template slot="brand">
