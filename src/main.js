@@ -12,7 +12,7 @@ import AsyncComputed from 'vue-async-computed'
 Vue.config.productionTip = false
 
 const httpLink = new HttpLink({
-  uri: 'http://localhost:3000',
+  uri: 'http://192.168.1.21:3000',
 })
 
 const apolloClient = new ApolloClient({

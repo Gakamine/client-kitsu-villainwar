@@ -4,8 +4,7 @@ export const FETCH_DATA_QUERY = gql`
       currentRound {
         roundNumber
         id
-        dateStart
-        dateEnd
+        date
         opp1Id {
           id
           name
@@ -16,24 +15,6 @@ export const FETCH_DATA_QUERY = gql`
           name
           image
         }
-      }
-      getResults{
-        dateEnd
-        dateStart
-        id
-        roundNumber
-        opp1Id {
-          id
-          name
-          image
-        }
-        opp2Id {
-          id
-          name
-          image
-        }
-        resultsOpp1
-        resultsOpp2
       }
   }
 `

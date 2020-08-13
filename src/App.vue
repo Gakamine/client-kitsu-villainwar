@@ -40,7 +40,7 @@
           </b-navbar-item>
         </template>
         <template slot="end">
-          <b-navbar-item tag="div" class="is-hidden-mobile ">
+          <b-navbar-item tag="div" class="is-hidden-mobile">
             <div class="buttons">
               <a v-if="token" class="button is-primary" @click="Logout()">
                 <strong>Logout</strong>
@@ -54,7 +54,7 @@
       </b-navbar>
 
       <div id="router-view">
-        <router-view v-if="getResults" :token="token" :data="currentRound" :results="getResults" />
+        <router-view :token="token" :data="currentRound" :checkvote="checkvote" />
       </div>
 
       <b-modal
@@ -142,7 +142,8 @@ export default {
       email: "",
       password: "",
       APIerror: false,
-      currentRound: null
+      currentRound: null,
+      checkvote: null
     }
   },
   methods: {
@@ -175,6 +176,7 @@ export default {
     Logout: function() {
       localStorage.clear()
       this.token = ""
+      this.checkvote = 0
     },
     checkToken: function() {
       axios({
@@ -187,21 +189,28 @@ export default {
         try {
             JSON.parse(JSON.stringify(response['data'])).data[0].id
             this.token=localStorage.token
+            this.checkVote()
         } catch (error) {
             this.token=""
             localStorage.clear()
         }
       })
+    },
+    checkVote: function() {
+      axios({
+        method: "post",
+        url: 'http://192.168.1.21:3000',
+        data: {
+          query: `{checkVote(token:"`+this.token+`")}`
+        }
+      })
+      .then((response) => {
+        this.checkvote=response['data'].data.checkVote
+      })   
     }
   },
   apollo: {
     currentRound: {
-      query: FETCH_DATA_QUERY,
-      error() {
-        this.APIerror=true
-      }
-    },
-    getResults: {
       query: FETCH_DATA_QUERY,
       error() {
         this.APIerror=true
@@ -316,6 +325,7 @@ export default {
     background-color: #3b3946;
     color: #d8d8d9;
     text-align: center;
+    display: flex;
   }
 
   .router-link-exact-active {

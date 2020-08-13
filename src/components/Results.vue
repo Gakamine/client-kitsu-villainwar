@@ -1,45 +1,20 @@
 <template>
-    <div v-if="results" id="results">
-      <div class="column" v-for="i in power" :key="i">
-        <Bracket :currentround="data.roundNumber" :results="results" :iteration="i" :participants="participants"/>
-      </div>
-    </div>
+  <iframe src="https://challonge.com/fr/kitsu_villainwar/module" width="100%" height="500" frameborder="0" scrolling="auto" allowtransparency="true"></iframe>
 </template>
 <script>
-import Bracket from '../components/Bracket.vue'
-export default {
+// import Bracket from '../components/Bracket.vue'
+
+export default {  
   name: 'ResultsPage',
-  props: ['results','data','token'],
-  components: {
-    Bracket
-  },
-  data() {
-    return {
-      participants: this.results.length+1,
-      power: 0
-    }
-  },
-  mounted() {
-    do {
-      this.power += 1;
-    } while (Math.pow(2,this.power)!=this.participants&&this.participants>this.power);
-  }
+  props: ['checkvote','data','token'],
 }
 </script>
 <style>
 #results {
   display: flex;
   flex-direction: row-reverse;
-  min-width: max-content;
+  width: 100%;
   cursor: col-resize;
-  padding: 15px;
-  height: 100%;
-}
-.column {
-  display: inline-block;
-  min-width: 300px;
-}
-#router-view {
-  overflow: auto;
+  height: 250px;
 }
 </style>

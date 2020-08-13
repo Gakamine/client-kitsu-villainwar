@@ -1,21 +1,22 @@
 <template>
-    <div>
+    <div id="vote">
       <form v-if="data" class="grid">
         <div class="grid-items">
           <b-radio v-model="vote"
               name="opponents"
               :native-value="data.opp1Id.id">
-              <img :src="'http://localhost:3000'+data.opp1Id.image"/>
+              <img :src="'http://192.168.1.21:3000'+data.opp1Id.image"/>
               <p>{{ data.opp1Id.name }}</p>
           </b-radio>
           <b-radio v-model="vote"
               name="opponents"
               :native-value="data.opp2Id.id">
-              <img :src="'http://localhost:3000'+data.opp2Id.image"/>
+              <img :src="'http://192.168.1.21:3000'+data.opp2Id.image"/>
               <p>{{ data.opp2Id.name }}</p>
           </b-radio>
         </div>
-        <input v-if="token" type="button" :value="valueBtn" :disabled="disableBtn" @click="SubmitVote()" class="button is-primary"/>
+        <input v-if="token&&!checkvote" type="button" value="Submit your vote" @click="SubmitVote()" class="button is-primary"/>
+        <input v-else-if="checkvote" type="button" value="You already voted" disabled class="button is-primary"/>
         <input v-else type="button" value="You need to log in" disabled class="button is-primary"/>
       </form>
       <h1 v-else>There is no match at the moment, please come back later!</h1>
@@ -25,13 +26,11 @@
 import { VOTE_MUTATION } from '../gql/mutation_vote';
 export default {
   name: 'VotePage',
-  props: ['data','token','results'],
+  props: ['data','token','checkvote'],
   data() {
     return {
       vote: null,
-      api_response: null,
-      disableBtn: false,
-      valueBtn: "Submit your vote"
+      api_response: null
     }
   },
   methods: {
@@ -61,9 +60,8 @@ export default {
                 message: "Vote submitted",
                 type: 'is-success',
             })
-            this.valueBtn="You already voted"
+            this.checkvote=true
           }
-          this.disableBtn=true
         })
         .catch(() => {
           this.$buefy.notification.open({
@@ -92,7 +90,6 @@ export default {
     overflow: hidden;
     margin: auto;
     display: inline-block;
-    margin: 50px 10px;
   }
   @media (min-width: 1200px){
     .grid {
@@ -137,5 +134,10 @@ export default {
   }
   .radio p {
     margin-bottom: 30px;
+  }
+  #vote {
+    display: flex;
+    padding: 10px;
+    width: 100%;
   }
 </style>
