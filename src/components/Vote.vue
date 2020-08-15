@@ -5,13 +5,13 @@
           <b-radio v-model="vote"
               name="opponents"
               :native-value="data.opp1Id.id">
-              <img :src="'http://192.168.1.21:3000'+data.opp1Id.image"/>
+              <img :src="'https://api.villainwar.madao-king.xyz'+data.opp1Id.image"/>
               <p>{{ data.opp1Id.name }}</p>
           </b-radio>
           <b-radio v-model="vote"
               name="opponents"
               :native-value="data.opp2Id.id">
-              <img :src="'http://192.168.1.21:3000'+data.opp2Id.image"/>
+              <img :src="'https://api.villainwar.madao-king.xyz'+data.opp2Id.image"/>
               <p>{{ data.opp2Id.name }}</p>
           </b-radio>
         </div>
@@ -19,14 +19,16 @@
         <input v-else-if="checkvote" type="button" value="You already voted" disabled class="button is-primary"/>
         <input v-else type="button" value="You need to log in" disabled class="button is-primary"/>
       </form>
-      <h1 v-else>There is no match at the moment, please come back later!</h1>
+      <fantasyleague v-else/>
     </div>
 </template>
 <script>
 import { VOTE_MUTATION } from '../gql/mutation_vote';
+import fantasyleague from '../components/FantasyLeague.vue'
 export default {
   name: 'VotePage',
   props: ['data','token','checkvote'],
+  components: { fantasyleague },
   data() {
     return {
       vote: null,
@@ -53,7 +55,6 @@ export default {
                 message: this.api_response.errors[0],
                 type: 'is-danger',
             })
-            this.valueBtn=this.api_response.errors[0]
           } else {
             this.$buefy.notification.open({
                 duration: 5000,

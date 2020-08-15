@@ -93,9 +93,9 @@
               <p>We do NOT store any of your credentials.</p>
             </section>
             <footer class="modal-card-foot">
-              <b-button v-if="IsLogging" class="button is-primary" loading
-                >Login</b-button
-              >
+              <b-button v-if="IsLogging" class="button is-primary" loading>
+                Login
+              </b-button>
               <button v-else class="button is-primary">Login</button>
             </footer>
           </div>
@@ -199,7 +199,7 @@ export default {
     checkVote: function() {
       axios({
         method: "post",
-        url: 'http://192.168.1.21:3000',
+        url: 'https://api.villainwar.madao-king.xyz',
         data: {
           query: `{checkVote(token:"`+this.token+`")}`
         }
@@ -361,5 +361,9 @@ export default {
   }
   .navbar-burger {
     margin-left: 0px !important;
+  }
+
+  h1 {
+    width: 100%;
   }
 </style>
