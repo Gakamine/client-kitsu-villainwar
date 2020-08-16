@@ -5,13 +5,13 @@
           <b-radio v-model="vote"
               name="opponents"
               :native-value="data.opp1Id.id">
-              <img :src="'https://api.villainwar.madao-king.xyz'+data.opp1Id.image"/>
+              <img :src="'https://api.villainwar.madao-king.xyz/'+data.opp1Id.image"/>
               <p>{{ data.opp1Id.name }}</p>
           </b-radio>
           <b-radio v-model="vote"
               name="opponents"
               :native-value="data.opp2Id.id">
-              <img :src="'https://api.villainwar.madao-king.xyz'+data.opp2Id.image"/>
+              <img :src="'https://api.villainwar.madao-king.xyz/'+data.opp2Id.image"/>
               <p>{{ data.opp2Id.name }}</p>
           </b-radio>
         </div>

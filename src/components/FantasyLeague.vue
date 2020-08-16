@@ -7,7 +7,7 @@
                 <b-checkbox v-for="opponent in fantasyLeague" v-model="vote_villains_fantasyleague"
                     name="opponents"
                     :native-value="opponent.id" :key="opponent.id">
-                    <img :src="'https://api.villainwar.madao-king.xyz'+opponent.image"/>
+                    <img :src="'https://api.villainwar.madao-king.xyz/'+opponent.image"/>
                     <p>{{ opponent.name }}</p>
                 </b-checkbox>
             </div>
@@ -22,7 +22,7 @@
               <b-radio v-for="best_villain in vote_villains_fantasyleague" v-model="vote_bestvillain_fantasyleague"
                 name="opponents"
                 :native-value="best_villain" :key="fantasyLeague[best_villain-1].id">
-                <img :src="'https://api.villainwar.madao-king.xyz'+fantasyLeague[best_villain-1].image"/>
+                <img :src="'https://api.villainwar.madao-king.xyz/'+fantasyLeague[best_villain-1].image"/>
                 <p>{{ fantasyLeague[best_villain-1].name }}</p>
               </b-radio>
             </div>
