@@ -109,11 +109,11 @@
             <a href="https://kitsu.io/users/Madao_King">Madao_King</a>. The
             website was made by
             <a href="https://kitsu.io/users/Gakamine">Gakamine</a>, support him on
-            <a href="https://liberapay.com/Gakamine">Liberapay</a>
+            <a href="https://liberapay.com/Gakamine">Liberapay</a>.
           </p>
           <p>
             All other trademarks and content not owned by the Kitsu Villain War
-            that appear on the website are the property of their respective owners
+            that appear on the website are the property of their respective owners.
           </p>
         </div>
       </footer>
