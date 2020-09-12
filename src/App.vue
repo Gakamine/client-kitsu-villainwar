@@ -106,7 +106,7 @@
         <div class="content has-text-centered">
           <p>
             The <strong>Kitsu Villain War</strong> are hosted by
-            <a href="https://kitsu.io/users/Madao_King">Madao_King</a>. The
+            <a href="https://kitsu.io/users/Madao">Madao_King</a>. The
             website was made by
             <a href="https://kitsu.io/users/Gakamine">Gakamine</a>, support him on
             <a href="https://liberapay.com/Gakamine">Liberapay</a>.
