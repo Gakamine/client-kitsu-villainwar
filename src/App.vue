@@ -70,10 +70,10 @@
               <p class="modal-card-title">Login with Kitsu</p>
             </header>
             <section class="modal-card-body">
-              <b-field label="Username">
+              <b-field label="Email">
                 <b-input
                   type="text"
-                  placeholder="Your username"
+                  placeholder="Your email"
                   v-model="email"
                   required
                 >
