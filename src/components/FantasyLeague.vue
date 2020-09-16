@@ -43,7 +43,7 @@ export default {
   data() {
       return {
           vote_villains_fantasyleague: [],
-          vote_bestvillain_fantasyleague: 0,
+          vote_bestvillain_fantasyleague: [],
           checkvote: false
       }
   },
