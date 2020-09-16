@@ -26,7 +26,7 @@
                 <p>{{ fantasyLeague[best_villain-1].name }}</p>
               </b-radio>
             </div>
-            <input v-if="vote_bestvillain_fantasyleague!=null" type="button" value="Select a villain" class="button is-primary" disabled/>
+            <input v-if="vote_bestvillain_fantasyleague==null" type="button" value="Select a villain" class="button is-primary" disabled/>
             <input v-else-if="checkvote" type="button" value="You already voted" class="button is-primary" disabled/>
             <input v-else type="button" value="Submit your vote" class="button is-primary" @click="SubmitVote()"/>           
           </form>
