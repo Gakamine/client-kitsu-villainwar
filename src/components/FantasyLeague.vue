@@ -54,7 +54,7 @@ export default {
   },
   methods: {
     SubmitVote: function() {
-        this.vote_villains_fantasyleague.splice(vote_villains_fantasyleague.indexOf(vote_bestvillain_fantasyleague),1)
+        this.vote_villains_fantasyleague.splice(this.vote_villains_fantasyleague.indexOf(this.vote_bestvillain_fantasyleague),1)
         this.$apollo.mutate({
           // Query
           mutation: FANTASYLEAGUE_VOTE_MUTATION,
