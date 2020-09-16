@@ -103,7 +103,7 @@ export default {
     margin: 0 !important;
     border: 1px solid #3b3946;
     overflow: hidden;
-    width: 255px;
+    width: 225px;
 }
 .checkbox:hover {
     background-color: #24212c;
