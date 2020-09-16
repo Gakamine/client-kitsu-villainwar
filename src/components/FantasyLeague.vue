@@ -54,6 +54,7 @@ export default {
   },
   methods: {
     SubmitVote: function() {
+        console.log(vote_bestvillain_fantasyleague)
         this.$apollo.mutate({
           // Query
           mutation: FANTASYLEAGUE_VOTE_MUTATION,
