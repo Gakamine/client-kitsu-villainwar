@@ -108,4 +108,11 @@ export default {
 .checkbox:hover {
     background-color: #24212c;
 }
+.b-radio.radio {
+    width: 225px;
+}
+.radio img {
+    max-height: 100% !important;
+     width: 100%;
+}
 </style>
