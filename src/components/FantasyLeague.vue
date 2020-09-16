@@ -54,14 +54,14 @@ export default {
   },
   methods: {
     SubmitVote: function() {
-        console.log(this.vote_bestvillain_fantasyleague)
+        this.vote_villains_fantasyleague.splice(vote_villains_fantasyleague.indexOf(vote_bestvillain_fantasyleague),1)
         this.$apollo.mutate({
           // Query
           mutation: FANTASYLEAGUE_VOTE_MUTATION,
           // Parameters
           variables: {
             token: this.$parent.token,
-            villains: this.vote_villains_fantasyleague.filter(val => !this.vote_bestvillain_fantasyleague.includes(val)),
+            villains: this.vote_villains_fantasyleague,
             best_villain: parseInt(this.vote_bestvillain_fantasyleague)
           }
         })
