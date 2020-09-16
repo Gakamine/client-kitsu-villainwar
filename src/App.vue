@@ -363,7 +363,4 @@ export default {
     margin-left: 0px !important;
   }
 
-  h1 {
-    width: 100%;
-  }
 </style>
