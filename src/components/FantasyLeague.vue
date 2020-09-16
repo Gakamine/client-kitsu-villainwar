@@ -115,4 +115,7 @@ export default {
     max-height: 100% !important;
      width: 100%;
 }
+label p {
+    height: 40px;
+}
 </style>
