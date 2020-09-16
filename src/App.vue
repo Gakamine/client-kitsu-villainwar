@@ -362,5 +362,8 @@ export default {
   .navbar-burger {
     margin-left: 0px !important;
   }
+  h1 {
+    font-size: 24px;
+  }
 
 </style>
