@@ -109,11 +109,11 @@ export default {
     background-color: #24212c;
 }
 .b-radio.radio {
-    width: 225px;
+    max-width: 225px;
 }
 .radio img {
     max-height: 100% !important;
-     width: 100%;
+    width: 100%;
 }
 label p {
     height: 40px;
