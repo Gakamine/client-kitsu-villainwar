@@ -55,7 +55,7 @@ export default {
   },
   methods: {
     SubmitVote: function() {
-        this.clone_vote_villains_fantasyleague=this.vote_villains_fantasyleague
+        this.clone_vote_villains_fantasyleague=this.vote_villains_fantasyleague.slice()
         this.clone_vote_villains_fantasyleague.splice(this.clone_vote_villains_fantasyleague.indexOf(this.vote_bestvillain_fantasyleague),1)
         this.$apollo.mutate({
           // Query
