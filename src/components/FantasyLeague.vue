@@ -43,6 +43,7 @@ export default {
   data() {
       return {
           vote_villains_fantasyleague: [],
+          clone_vote_villains_fantasyleague: [],
           vote_bestvillain_fantasyleague: null,
           checkvote: false
       }
@@ -54,14 +55,15 @@ export default {
   },
   methods: {
     SubmitVote: function() {
-        this.vote_villains_fantasyleague.splice(this.vote_villains_fantasyleague.indexOf(this.vote_bestvillain_fantasyleague),1)
+        this.clone_vote_villains_fantasyleague=this.vote_villains_fantasyleague
+        this.clone_vote_villains_fantasyleague.splice(this.clone_vote_villains_fantasyleague.indexOf(this.vote_bestvillain_fantasyleague),1)
         this.$apollo.mutate({
           // Query
           mutation: FANTASYLEAGUE_VOTE_MUTATION,
           // Parameters
           variables: {
             token: this.$parent.token,
-            villains: this.vote_villains_fantasyleague,
+            villains: this.clone_vote_villains_fantasyleague,
             best_villain: parseInt(this.vote_bestvillain_fantasyleague)
           }
         })
