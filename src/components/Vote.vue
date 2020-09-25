@@ -67,7 +67,7 @@ export default {
         .catch(() => {
           this.$buefy.notification.open({
               duration: 5000,
-              message: 'Something went wrong, please contact the administrator.',
+              message: 'Something went wrong. Please refresh the page and if the error persists, contact the administrator.',
               type: 'is-danger',
           })
         })

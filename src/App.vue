@@ -185,15 +185,15 @@ export default {
         headers: {
           Authorization: "Bearer "+localStorage.token
         }
-      }).then((response) => {
-        try {
-            JSON.parse(JSON.stringify(response['data'])).data[0].id
-            this.token=localStorage.token
-            this.checkVote()
-        } catch (error) {
-            this.token=""
-            localStorage.clear()
-        }
+      })
+      .then((response) => {
+        JSON.parse(JSON.stringify(response['data'])).data[0].id
+        this.token=localStorage.token
+        this.checkVote()
+      })
+      .catch(() => {
+          this.token=""
+          localStorage.clear()
       })
     },
     checkVote: function() {
